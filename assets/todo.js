@@ -1,7 +1,7 @@
 
 const styleUpperContainer = () => {
 
-    let upperContainer = document.querySelector('.upper-container');
+    let upperContainer = document.querySelector('.upperContainer');
 
     upperContainer.style.backgroundColor = 'red';
     upperContainer.style.display = 'flex';
@@ -14,7 +14,7 @@ const styleUpperContainer = () => {
 
 const styleInputContainer = () => {
 
-    let inputContainer = document.querySelector('.input-container');
+    let inputContainer = document.querySelector('.inputContainer');
 
     inputContainer.style.display = 'flex';
     inputContainer.style.justifyContent = 'center';
@@ -26,7 +26,7 @@ const styleInputContainer = () => {
 
 const styleH1Container = () => {
 
-    let h1Container = document.querySelector('.h1-container')
+    let h1Container = document.querySelector('.h1Container')
     h1Container.style.width = '100%';
     h1Container.style.textAlign = 'center';
 }
