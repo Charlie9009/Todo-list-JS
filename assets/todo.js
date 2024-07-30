@@ -15,7 +15,7 @@ const styleUpperContainer = () => {
 const styleInputContainer = () => {
 
     let inputContainer = document.querySelector('.input-container');
-    
+
     inputContainer.style.display = 'flex';
     inputContainer.style.justifyContent = 'center';
     inputContainer.style.alignItems = 'center';
@@ -32,7 +32,7 @@ const styleH1Container = () => {
 }
 
 const styleInput = () => {
-    
+
     let input = document.querySelector('input');
     input.style.padding = '10px';
     input.style.width = '60%';
@@ -45,11 +45,17 @@ const styleButton = () => {
     button.style.width = '20%';
 }
 
+const addStyles = () => {
+
+    styleUpperContainer();
+    styleInputContainer();
+    styleH1Container()
+    styleInput()
+    styleButton()
+}
 
 
 
-styleUpperContainer();
-styleInputContainer();
-styleH1Container()
-styleInput()
-styleButton()
+
+addStyles()
+
