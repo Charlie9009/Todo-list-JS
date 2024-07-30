@@ -7,9 +7,13 @@ const newListItem = () => {
     if (inputValue === '') {
         alert('You did not write anything');
     } else {
+        li.style.backgroundColor = 'grey';
         document.querySelector('#myUl').appendChild(li)
+
     }
     document.querySelector('#myInput').value = '';
+    
+
     
 }
 
