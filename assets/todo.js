@@ -18,17 +18,15 @@ const newListItem = () => {
     // close icon for todos
     let span = document.createElement('span');
     let closeIcon = document.createTextNode('X');
-    let closeClassName = document.querySelectorAll('.close')
 
     span.className = 'close';
     span.appendChild(closeIcon);
     li.appendChild(span);
 
-    for (let i = 0; i < closeClassName.length; i++) {
-        closeClassName[i].onclick = function () {
-            let div = this.parentElement;
-            div.style.display = "none";
-        }
+    span.onclick = function () {
+        let div = this.parentElement;
+        div.style.display = "none";
+        console.log(div);
     }
 }
 
