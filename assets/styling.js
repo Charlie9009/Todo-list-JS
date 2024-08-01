@@ -45,6 +45,14 @@ const styleButton = () => {
     button.style.width = '20%';
 }
 
+const styleCheckedTodo = () => {
+
+    let checked = document.querySelectorAll('.checked');
+    checked.forEach(item => {
+        item.style.textDecoration = 'line-through';
+    });
+}
+
 const addStyles = () => {
 
     styleUpperContainer();
