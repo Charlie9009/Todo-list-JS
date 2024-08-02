@@ -48,6 +48,12 @@ const styleButton = () => {
 const styleCheckedTodo = () => {
 
     let checked = document.querySelectorAll('.checked');
+    // Clear previous styles
+    let allLiItems = document.querySelectorAll('li');
+    allLiItems.forEach(item => {
+        item.style.textDecoration = 'none';
+    });
+    // Apply line-through style to clicked todo
     checked.forEach(item => {
         item.style.textDecoration = 'line-through';
     });
