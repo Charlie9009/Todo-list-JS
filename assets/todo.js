@@ -41,9 +41,14 @@ list.addEventListener('click', function (ev) {
 
 
 
-list.addEventListener("mouseover", (ev) => {
+list.addEventListener('mouseover', (ev) => {
         // highlight the mouseover target
         ev.target.style.backgroundColor = "#C0C0C0";
     },
     false,
 );
+
+list.addEventListener('mouseout', (ev) => {
+    // On mouse out
+    styleTodos();
+})
