@@ -68,6 +68,7 @@ const styleCheckedTodo = () => {
     // Apply line-through style to clicked todo
     checked.forEach(item => {
         item.style.textDecoration = 'line-through';
+        item.style.backgroundColor = '#808080';
     });
 }
 

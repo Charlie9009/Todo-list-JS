@@ -52,5 +52,6 @@ list.addEventListener('mouseout', (ev) => {
     // On mouse out
     if (ev.target.tagName === 'LI') {
         styleTodos();
+        styleCheckedTodo()
     }
 })
