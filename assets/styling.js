@@ -45,6 +45,17 @@ const styleButton = () => {
     button.style.width = '20%';
 }
 
+const styleTodos = () => {
+    const allItems = document.querySelectorAll('#myUl li');
+    allItems.forEach((item, index) => {
+        if (index % 2 === 0) {
+            item.style.backgroundColor = 'lightgrey';
+        } else {
+            item.style.backgroundColor = 'white';
+        }
+    });
+}
+
 const styleCheckedTodo = () => {
 
     let checked = document.querySelectorAll('.checked');
@@ -59,6 +70,7 @@ const styleCheckedTodo = () => {
         item.style.textDecoration = 'line-through';
     });
 }
+
 
 const addStyles = () => {
 

@@ -9,9 +9,8 @@ const newListItem = () => {
     if (inputValue === '') {
         alert('You did not write anything');
     } else {
-        li.style.backgroundColor = 'grey';
         document.querySelector('#myUl').appendChild(li)
-
+        styleTodos()
     }
     document.querySelector('#myInput').value = '';
 
@@ -26,7 +25,7 @@ const newListItem = () => {
     span.onclick = function () {
         let div = this.parentElement;
         div.style.display = "none";
-        console.log(div);
+        styleTodos()
     }
 }
 
