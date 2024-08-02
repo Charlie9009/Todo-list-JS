@@ -46,10 +46,10 @@ const styleButton = () => {
 }
 
 const styleTodos = () => {
-    const allItems = document.querySelectorAll('#myUl li');
+    const allItems = document.querySelectorAll('li');
     allItems.forEach((item, index) => {
         if (index % 2 === 0) {
-            item.style.backgroundColor = 'lightgrey';
+            item.style.backgroundColor = '#DCDCDC';
         } else {
             item.style.backgroundColor = 'white';
         }

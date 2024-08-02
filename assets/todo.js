@@ -32,7 +32,7 @@ const newListItem = () => {
 document.querySelector('#addBtn').addEventListener('click', newListItem);
 
 let list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
+list.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
         ev.target.classList.toggle('checked');
         styleCheckedTodo();
@@ -40,3 +40,10 @@ list.addEventListener('click', function(ev) {
 }, false);
 
 
+
+list.addEventListener("mouseover", (ev) => {
+        // highlight the mouseover target
+        ev.target.style.backgroundColor = "#C0C0C0";
+    },
+    false,
+);
