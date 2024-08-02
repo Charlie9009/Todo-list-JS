@@ -50,6 +50,7 @@ const styleCheckedTodo = () => {
     let checked = document.querySelectorAll('.checked');
     // Clear previous styles
     let allLiItems = document.querySelectorAll('li');
+    
     allLiItems.forEach(item => {
         item.style.textDecoration = 'none';
     });
