@@ -41,6 +41,7 @@ const newListItem = () => {
         div.style.display = "none";
         styleTodos()
     }
+    styleCloseTodoButton();
 }
 
 document.querySelector('#addBtn').addEventListener('click', newListItem);

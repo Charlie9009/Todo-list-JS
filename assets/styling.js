@@ -92,6 +92,13 @@ const styleCheckedTodo = () => {
     });
 }
 
+const styleCloseTodoButton = () => {
+    const closeIcon = document.querySelectorAll('.close');
+    closeIcon.forEach(icon => {
+        icon.style.cursor = 'pointer'; // Change cursor to pointer for better UX
+        icon.style.float = 'right'; // Add some space between text and the icon
+    })
+}
 
 const addStyles = () => {
 
@@ -101,6 +108,7 @@ const addStyles = () => {
     styleInput()
     styleButton()
     styleTodoContainer()
+    styleCloseTodoButton()
 }
 
 addStyles()
