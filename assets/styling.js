@@ -64,18 +64,31 @@ const styleTodos = () => {
 }
 
 const styleCheckedTodo = () => {
-
     const checked = document.querySelectorAll('.checked');
+
     // Clear previous styles
     const allLiItems = document.querySelectorAll('li');
-    
+
     allLiItems.forEach(item => {
         item.style.textDecoration = 'none';
+
+        // Hide checkmark for unchecked items
+        const checkmark = item.querySelector('.checkmark');
+        if (checkmark) {
+            checkmark.style.display = 'none';
+        }
     });
-    // Apply line-through style to clicked todo
+
+    // Apply styles to checked todos and show checkmark
     checked.forEach(item => {
         item.style.textDecoration = 'line-through';
         item.style.backgroundColor = '#808080';
+
+        // Show checkmark
+        const checkmark = item.querySelector('.checkmark');
+        if (checkmark) {
+            checkmark.style.display = 'inline-block';
+        }
     });
 }
 
@@ -90,8 +103,4 @@ const addStyles = () => {
     styleTodoContainer()
 }
 
-
-
-
 addStyles()
-

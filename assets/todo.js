@@ -1,3 +1,11 @@
+const createCheckmark = () => {
+    const checkmark = document.createElement('span')
+    checkmark.textContent = '✔';
+    checkmark.style.display = 'none';
+    checkmark.style.marginRight = '10px';
+    checkmark.className = 'checkmark';
+    return checkmark;
+}
 
 const newListItem = () => {
     // Add todo item
@@ -5,6 +13,7 @@ const newListItem = () => {
     let inputValue = document.querySelector('#myInput').value
     let text = document.createTextNode(inputValue);
 
+    li.appendChild(createCheckmark())
     li.appendChild(text);
     if (inputValue === '') {
         alert('You did not write anything');
