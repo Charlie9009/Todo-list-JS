@@ -45,9 +45,10 @@ const mouseOverTodos = () => {
     list.addEventListener('mouseover', (ev) => {
         // highlight the mouseover target
         ev.target.style.backgroundColor = "#C0C0C0";
-    },
-        false,
-    );
+        if (ev.target.className === 'checked') {
+            styleCheckedTodo();
+        }
+    }, false,);
 }
 
 const mouseOutOfTodos = () => {
