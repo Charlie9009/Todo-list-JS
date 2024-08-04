@@ -45,6 +45,13 @@ const styleButton = () => {
     button.style.width = '20%';
 }
 
+const styleTodoContainer = () => {
+
+    const ul = document.querySelector('ul');
+    ul.style.margin = '0px';
+    ul.style.padding = '0px';
+}
+
 const styleTodos = () => {
     const allItems = document.querySelectorAll('li');
     allItems.forEach((item, index) => {
@@ -80,6 +87,7 @@ const addStyles = () => {
     styleH1Container()
     styleInput()
     styleButton()
+    styleTodoContainer()
 }
 
 
