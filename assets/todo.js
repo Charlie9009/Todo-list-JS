@@ -38,15 +38,15 @@ const newListItem = () => {
     li.appendChild(checkmark);
     li.appendChild(text);
     
-    // Add todo item and style if input is valid
-    if (inputValue === '') {
+    // If input is empty or only spaces trigger an alert
+    if (inputValue.trim() === '') {
         alert('You did not write anything');
-    } else {
-        document.querySelector('#myUl').appendChild(li);
-        styleTodos();
+        return;
     }
+    
+    document.querySelector('#myUl').appendChild(li);
+    styleTodos();
     document.querySelector('#myInput').value = '';
-
     // Close icon for todos
     const closeIconContainer = createSpan();
     const closeIcon = document.createTextNode('X');
@@ -106,6 +106,17 @@ const addBtnHandler = () => {
     ADDBTN.addEventListener('click', newListItem);
 }
 
+const addTodoWithEnterKey = () => {
+    // Add todo with enter key
+    const inputValue = document.querySelector('#myInput');
+    inputValue.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            newListItem();
+        }
+    });
+}
+
+addTodoWithEnterKey();
 addBtnHandler();
 checkingTodoEvent();
 mouseOverTodos();
