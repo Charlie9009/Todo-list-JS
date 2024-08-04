@@ -40,18 +40,27 @@ list.addEventListener('click', function (ev) {
 }, false);
 
 
+const mouseOverTodos = () => {
 
-list.addEventListener('mouseover', (ev) => {
+    list.addEventListener('mouseover', (ev) => {
         // highlight the mouseover target
         ev.target.style.backgroundColor = "#C0C0C0";
     },
-    false,
-);
+        false,
+    );
+}
 
-list.addEventListener('mouseout', (ev) => {
-    // On mouse out
-    if (ev.target.tagName === 'LI') {
-        styleTodos();
-        styleCheckedTodo()
-    }
-})
+const mouseOutOfTodos = () => {
+
+    list.addEventListener('mouseout', (ev) => {
+        // On mouse out
+        if (ev.target.tagName === 'LI') {
+            styleTodos();
+            styleCheckedTodo()
+        }
+    })
+}
+
+
+mouseOverTodos()
+mouseOutOfTodos()
