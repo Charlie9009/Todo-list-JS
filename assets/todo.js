@@ -1,5 +1,5 @@
 const createCheckmark = () => {
-    const checkmark = document.createElement('span')
+    const checkmark = document.createElement('span');
     checkmark.textContent = '✔';
     checkmark.style.display = 'none';
     checkmark.style.marginRight = '10px';
@@ -9,26 +9,36 @@ const createCheckmark = () => {
 
 const createSpan = () => {
     const span = document.createElement('span');
-    return span
+    return span;
+}
+
+const handleMouseOver = (ev) => {
+    ev.currentTarget.style.backgroundColor = "#C0C0C0"; // Change background color on mouse over
+}
+
+const handleMouseOut = (ev) => {
+    ev.currentTarget.style.backgroundColor = ""; // Reset background color on mouse out
 }
 
 const newListItem = () => {
     // Add todo item
     let li = document.createElement('li');
-    let inputValue = document.querySelector('#myInput').value
+    let inputValue = document.querySelector('#myInput').value;
     let text = document.createTextNode(inputValue);
 
-    li.appendChild(createCheckmark())
+    const checkmark = createCheckmark(); // Create checkmark
+    li.appendChild(checkmark);
     li.appendChild(text);
+    
     if (inputValue === '') {
         alert('You did not write anything');
     } else {
-        document.querySelector('#myUl').appendChild(li)
-        styleTodos()
+        document.querySelector('#myUl').appendChild(li);
+        styleTodos();
     }
     document.querySelector('#myInput').value = '';
 
-    // close icon for todos
+    // Close icon for todos
     const closeIconContainer = createSpan();
     const closeIcon = document.createTextNode('X');
 
@@ -39,9 +49,16 @@ const newListItem = () => {
     closeIconContainer.onclick = function () {
         let div = this.parentElement;
         div.style.display = "none";
-        styleTodos()
-    }
+        styleTodos();
+    };
     styleCloseTodoButton();
+
+    // Adding mouseover and mouseout events to the list item and checkmark
+    li.addEventListener('mouseover', handleMouseOver);
+    li.addEventListener('mouseout', handleMouseOut);
+    
+    checkmark.addEventListener('mouseover', handleMouseOver);
+    checkmark.addEventListener('mouseout', handleMouseOut);
 }
 
 document.querySelector('#addBtn').addEventListener('click', newListItem);
@@ -54,29 +71,26 @@ list.addEventListener('click', function (ev) {
     }
 }, false);
 
-
 const mouseOverTodos = () => {
-
     list.addEventListener('mouseover', (ev) => {
-        // highlight the mouseover target
-        ev.target.style.backgroundColor = "#C0C0C0";
-        if (ev.target.className === 'checked') {
+        // Highlight the mouseover target
+        if (ev.target.tagName === 'LI') {
+            handleMouseOver(ev);
             styleCheckedTodo();
         }
-    }, false,);
+    }, false);
 }
 
 const mouseOutOfTodos = () => {
-
     list.addEventListener('mouseout', (ev) => {
         // On mouse out
         if (ev.target.tagName === 'LI') {
+            handleMouseOut(ev);
             styleTodos();
-            styleCheckedTodo()
+            styleCheckedTodo();
         }
-    })
+    });
 }
 
-
-mouseOverTodos()
-mouseOutOfTodos()
+mouseOverTodos();
+mouseOutOfTodos();
