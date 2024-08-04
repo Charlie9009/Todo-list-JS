@@ -1,7 +1,7 @@
 
 const styleUpperContainer = () => {
 
-    let upperContainer = document.querySelector('.upperContainer');
+    const upperContainer = document.querySelector('.upperContainer');
 
     upperContainer.style.backgroundColor = 'red';
     upperContainer.style.display = 'flex';
@@ -14,7 +14,7 @@ const styleUpperContainer = () => {
 
 const styleInputContainer = () => {
 
-    let inputContainer = document.querySelector('.inputContainer');
+    const inputContainer = document.querySelector('.inputContainer');
 
     inputContainer.style.display = 'flex';
     inputContainer.style.justifyContent = 'center';
@@ -26,21 +26,21 @@ const styleInputContainer = () => {
 
 const styleH1Container = () => {
 
-    let h1Container = document.querySelector('.h1Container')
+    const h1Container = document.querySelector('.h1Container')
     h1Container.style.width = '100%';
     h1Container.style.textAlign = 'center';
 }
 
 const styleInput = () => {
 
-    let input = document.querySelector('input');
+    const input = document.querySelector('input');
     input.style.padding = '10px';
     input.style.width = '60%';
 }
 
 const styleButton = () => {
 
-    let button = document.querySelector('button');
+    const button = document.querySelector('button');
     button.style.padding = '10px';
     button.style.width = '20%';
 }
@@ -53,8 +53,8 @@ const styleTodoContainer = () => {
 }
 
 const styleTodos = () => {
-    const allItems = document.querySelectorAll('li');
-    allItems.forEach((item, index) => {
+    const allLiItems = document.querySelectorAll('li');
+    allLiItems.forEach((item, index) => {
         if (index % 2 === 0) {
             item.style.backgroundColor = '#DCDCDC';
         } else {
@@ -65,9 +65,9 @@ const styleTodos = () => {
 
 const styleCheckedTodo = () => {
 
-    let checked = document.querySelectorAll('.checked');
+    const checked = document.querySelectorAll('.checked');
     // Clear previous styles
-    let allLiItems = document.querySelectorAll('li');
+    const allLiItems = document.querySelectorAll('li');
     
     allLiItems.forEach(item => {
         item.style.textDecoration = 'none';
