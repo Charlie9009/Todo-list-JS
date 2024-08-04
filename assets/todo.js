@@ -1,7 +1,9 @@
+// Constants
 const UL = document.querySelector('ul');
 const ADDBTN = document.querySelector('#addBtn');
 
 const createCheckmark = () => {
+    // Create checkmark
     const checkmark = document.createElement('span');
     checkmark.textContent = '✔';
     checkmark.style.display = 'none';
@@ -11,28 +13,32 @@ const createCheckmark = () => {
 }
 
 const createSpan = () => {
+    // Create html span
     const span = document.createElement('span');
     return span;
 }
 
 const handleMouseOver = (ev) => {
-    ev.currentTarget.style.backgroundColor = "#C0C0C0"; // Change background color on mouse over
+    // Change background color on mouse over
+    ev.currentTarget.style.backgroundColor = '#C0C0C0';
 }
 
 const handleMouseOut = (ev) => {
-    ev.currentTarget.style.backgroundColor = ""; // Reset background color on mouse out
+    // Reset background color on mouse out
+    ev.currentTarget.style.backgroundColor = '';
 }
 
 const newListItem = () => {
-    // Add todo item
+    // Add variables
     const li = document.createElement('li');
     const inputValue = document.querySelector('#myInput').value;
     const text = document.createTextNode(inputValue);
-    const checkmark = createCheckmark(); // Create checkmark
-
+    const checkmark = createCheckmark();
+    // append list, checkmarks and text
     li.appendChild(checkmark);
     li.appendChild(text);
-
+    
+    // Add todo item and style if input is valid
     if (inputValue === '') {
         alert('You did not write anything');
     } else {
@@ -44,14 +50,14 @@ const newListItem = () => {
     // Close icon for todos
     const closeIconContainer = createSpan();
     const closeIcon = document.createTextNode('X');
-
     closeIconContainer.className = 'close';
+    // Append closeIcon
     closeIconContainer.appendChild(closeIcon);
     li.appendChild(closeIconContainer);
-
+    // Remove todo when closeIcon is clicked
     closeIconContainer.onclick = function () {
         let div = this.parentElement;
-        div.style.display = "none";
+        div.style.display = 'none';
         styleTodos();
     };
     styleCloseTodoButton();
@@ -62,11 +68,10 @@ const newListItem = () => {
 
     checkmark.addEventListener('mouseover', handleMouseOver);
     checkmark.addEventListener('mouseout', handleMouseOut);
-
 }
 
 const checkingTodoEvent = () => {
-
+    // Add event listener for when checking of a todo
     UL.addEventListener('click', function (ev) {
         if (ev.target.tagName === 'LI') {
             ev.target.classList.toggle('checked');
@@ -76,9 +81,8 @@ const checkingTodoEvent = () => {
 }
 
 const mouseOverTodos = () => {
-
+    // Add event listener for mouse over
     UL.addEventListener('mouseover', (ev) => {
-        // Highlight the mouseover target
         if (ev.target.tagName === 'LI') {
             handleMouseOver(ev);
             styleCheckedTodo();
@@ -87,9 +91,8 @@ const mouseOverTodos = () => {
 }
 
 const mouseOutOfTodos = () => {
-
+    // Add event listener for mouse out
     UL.addEventListener('mouseout', (ev) => {
-        // On mouse out
         if (ev.target.tagName === 'LI') {
             handleMouseOut(ev);
             styleTodos();
@@ -99,6 +102,7 @@ const mouseOutOfTodos = () => {
 }
 
 const addBtnHandler = () => {
+    // Add event listener for btn
     ADDBTN.addEventListener('click', newListItem);
 }
 
