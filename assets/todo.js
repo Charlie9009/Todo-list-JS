@@ -7,6 +7,11 @@ const createCheckmark = () => {
     return checkmark;
 }
 
+const createSpan = () => {
+    const span = document.createElement('span');
+    return span
+}
+
 const newListItem = () => {
     // Add todo item
     let li = document.createElement('li');
@@ -24,14 +29,14 @@ const newListItem = () => {
     document.querySelector('#myInput').value = '';
 
     // close icon for todos
-    let span = document.createElement('span');
-    let closeIcon = document.createTextNode('X');
+    const closeIconContainer = createSpan();
+    const closeIcon = document.createTextNode('X');
 
-    span.className = 'close';
-    span.appendChild(closeIcon);
-    li.appendChild(span);
+    closeIconContainer.className = 'close';
+    closeIconContainer.appendChild(closeIcon);
+    li.appendChild(closeIconContainer);
 
-    span.onclick = function () {
+    closeIconContainer.onclick = function () {
         let div = this.parentElement;
         div.style.display = "none";
         styleTodos()
