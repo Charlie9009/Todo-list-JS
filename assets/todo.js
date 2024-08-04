@@ -1,3 +1,6 @@
+const UL = document.querySelector('ul');
+const ADDBTN = document.querySelector('#addBtn');
+
 const createCheckmark = () => {
     const checkmark = document.createElement('span');
     checkmark.textContent = '✔';
@@ -22,14 +25,14 @@ const handleMouseOut = (ev) => {
 
 const newListItem = () => {
     // Add todo item
-    let li = document.createElement('li');
-    let inputValue = document.querySelector('#myInput').value;
-    let text = document.createTextNode(inputValue);
-
+    const li = document.createElement('li');
+    const inputValue = document.querySelector('#myInput').value;
+    const text = document.createTextNode(inputValue);
     const checkmark = createCheckmark(); // Create checkmark
+
     li.appendChild(checkmark);
     li.appendChild(text);
-    
+
     if (inputValue === '') {
         alert('You did not write anything');
     } else {
@@ -56,23 +59,25 @@ const newListItem = () => {
     // Adding mouseover and mouseout events to the list item and checkmark
     li.addEventListener('mouseover', handleMouseOver);
     li.addEventListener('mouseout', handleMouseOut);
-    
+
     checkmark.addEventListener('mouseover', handleMouseOver);
     checkmark.addEventListener('mouseout', handleMouseOut);
+
 }
 
-document.querySelector('#addBtn').addEventListener('click', newListItem);
+const checkingTodoEvent = () => {
 
-let list = document.querySelector('ul');
-list.addEventListener('click', function (ev) {
-    if (ev.target.tagName === 'LI') {
-        ev.target.classList.toggle('checked');
-        styleCheckedTodo();
-    }
-}, false);
+    UL.addEventListener('click', function (ev) {
+        if (ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('checked');
+            styleCheckedTodo();
+        }
+    }, false);
+}
 
 const mouseOverTodos = () => {
-    list.addEventListener('mouseover', (ev) => {
+
+    UL.addEventListener('mouseover', (ev) => {
         // Highlight the mouseover target
         if (ev.target.tagName === 'LI') {
             handleMouseOver(ev);
@@ -82,7 +87,8 @@ const mouseOverTodos = () => {
 }
 
 const mouseOutOfTodos = () => {
-    list.addEventListener('mouseout', (ev) => {
+
+    UL.addEventListener('mouseout', (ev) => {
         // On mouse out
         if (ev.target.tagName === 'LI') {
             handleMouseOut(ev);
@@ -92,5 +98,11 @@ const mouseOutOfTodos = () => {
     });
 }
 
+const addBtnHandler = () => {
+    ADDBTN.addEventListener('click', newListItem);
+}
+
+addBtnHandler();
+checkingTodoEvent();
 mouseOverTodos();
 mouseOutOfTodos();
